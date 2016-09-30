@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/GridLayoutTest"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:columnOrderPreserved="true"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical"
+    android:rowOrderPreserved="true"
+    android:useDefaultMargins="false"
+    android:weightSum="1"
+    android:background="@color/primary_material_dark"
+    android:textColor="@color/background_floating_material_light">
+
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="-0dp">
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/TitleContent"
+                android:layout_width="650dp"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="25dp"
+                android:layout_span="2"
+                android:text="@string/start_title"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="50sp"
+                android:textStyle="bold"
+                android:textColor="@color/background_material_light" />
+
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="AudioEffectsExpress"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="32dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/background_floating_material_light" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="240dp"
+                android:layout_height="55dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="-150dp"
+                android:onClick="openTutorial"
+                android:text="Tutorial / Help"
+                android:textSize="20dp" />
+
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="-20dp">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="                                                       Audio Waveform                                                                                                                  Frequency Spectrum"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#08ff00" />
+
+        </LinearLayout>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+
+            <view
+                android:id="@+id/view"
+                style="@style/AppTheme"
+                class="edu.ksu.ece590.androideffectsdemo.renders.CustomDrawableView"
+                android:layout_width="644dp"
+                android:layout_height="460dp"
+                android:background="@color/background_material_dark"
+                android:minHeight="20dp"
+                android:minWidth="20dp"
+                android:visibility="visible" />
+
+            <view
+                style="@style/AppTheme"
+                class="edu.ksu.ece590.androideffectsdemo.renders.CustomDrawableView"
+                android:id="@+id/Divider"
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#1aff00"
+                android:minHeight="20dp"
+                android:minWidth="20dp"
+                android:visibility="visible" />
+            <LinearLayout
+                android:layout_width="644dp"
+                android:layout_height="460dp"
+                android:orientation="vertical">
+                <com.jjoe64.graphview.GraphView
+                    android:layout_width="match_parent"
+                    android:layout_height="445dp"
+                    android:id="@+id/graph"
+                    android:textColor="@color/background_floating_material_light"
+                    android:background="#a7a7a7" />
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="                                                                                                                      Frequency in Hz                                                                                                                                                    "
+                    android:textSize="10sp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#000000"
+                    android:background="#a7a7a7"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="138dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/RecordButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_states"
+                android:checked="false"
+                android:clickable="true"
+                android:enabled="true"
+                android:text="Rec"
+                android:textSize="@dimen/buttonPlayRecSize"
+                android:textStyle="normal"
+                android:layout_weight="0.82"
+                android:singleLine="false"
+                android:textAlignment="center" />
+            <LinearLayout
+                android:layout_width="300dp"
+                android:layout_height="135dp"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:text="              Speed"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/background_material_light" />
+                <SeekBar
+                    android:id="@+id/seekbar"
+                    android:max="2"
+                    android:progress="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="40dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:text="Slow                                         Fast"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/background_material_light" />
+            </LinearLayout>
+            <ToggleButton
+                android:id="@+id/lowpassFilterButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/selector"
+                android:textOff="Low Pass"
+                android:textOn="Low Pass"
+                android:textSize="@dimen/buttonTextSize"
+                android:typeface="sans"
+                android:checked="false" />
+
+
+            <ToggleButton
+                android:id="@+id/highpassButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/selector"
+                android:text="High Pass"
+                android:textOff="High Pass"
+                android:textOn="High Pass"
+                android:textSize="@dimen/buttonTextSize"
+                android:typeface="sans"
+                android:textAlignment="center" />
+
+
+            <ToggleButton
+                android:id="@+id/reverseButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/selector"
+                android:textOff="Reverse"
+                android:textOn="Reverse"
+                android:textSize="@dimen/buttonTextSize"
+                android:typeface="sans"
+                android:textAlignment="center" />
+
+
+            <ToggleButton
+                android:id="@+id/ReverbButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/selector"
+                android:textOff="Reverb"
+                android:textOn="Reverb"
+                android:textSize="@dimen/buttonTextSize"
+                android:typeface="sans" />
+
+
+            <Button
+                android:id="@+id/PlayButton"
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="0dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="50dp"
+                android:background="@drawable/play_circle"
+                android:clickable="true"
+                android:enabled="true" />
+        </LinearLayout>
+
+    </TableRow>
+
+
+</TableLayout>

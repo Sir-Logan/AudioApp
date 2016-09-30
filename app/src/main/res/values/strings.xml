@@ -1,0 +1,101 @@
+<resources>
+    <string name="app_name">Audio Effects Express©</string>
+    <string name="hello_world">Hello world!</string>
+
+    <string name="action_settings">Settings</string>
+
+    <!-- Getting Started -->
+    <string name="start_title">Welcome!</string>
+    <string name="start_text">Choose an effect to get started or the tutorial button in the upper right-hand corner to learn how to operate the application and get more technical information.</string>
+
+    <!-- Reverb -->
+    <string name="reverb_effect_name">Reverb</string>
+    <string name="reverb_effect_desc">Add an echo</string>
+    <string name="reverb_tutorial">
+        Reverb or Echo functions are used to simulate the effect of
+        reverberation in a large hall or cavern. Several delayed signals
+        are added to the original recorded signal to add the echo effect.
+        For this application\'s purposes, the original sounds data is repeated
+        in short bursts and added to the original signal. These repeats have
+        diminishing effects so the echo effects don\'t last forever and do
+        eventually die off.</string>
+
+    <!-- Lowpass -->
+    <string name="lowpass_effect_name">Lowpass Filter</string>
+    <string name="lowpass_effect_desc">Remove high pitch noise</string>
+    <string name="lowpass_tutorial">
+        The low pass filter on this application only passes data
+    from the signal under a certain range. The range is
+    determined by the signal so this is not a set value.
+    When you play back the signal, only lower amplitude sounds
+    will be played back because the filter will capture the
+    higher amplitude data points.</string>
+
+    <!-- Highpass -->
+    <string name="highpass_effect_name">Highpass Filter</string>
+    <string name="highpass_effect_desc">Remove low pitch noise</string>
+    <string name="highpass_tutorial">The high pass filter on this application only passes data
+        from the signal over a certain range. The range is
+        determined by the signal so this is not a set value.
+        When you play back the signal, only higher amplitude sounds
+        will be played back because the filter will capture the
+        lower amplitude data points. </string>
+
+    <!-- Reverse -->
+    <string name="reverse_effect_name">Reverse</string>
+    <string name="reverse_effect_desc">Reverse the recording</string>
+    <string name="reverse_tutorial">The reverse function in this application takes the last sample
+        and makes it to the first and takes the first sample and
+        makes it the last. It does this for all the data points in the
+        middle as well. So the sound you hear will sound backwards to
+        what it originally was. The audio waveform should also look
+        backwards from what it originally looked like when you recorded
+        your signal.</string>
+
+    <!-- Halve Samples -->
+    <string name="halve_effect_name">Halve Samples</string>
+    <string name="halve_effect_desc">loss in quality</string>
+    <string name="halve_tutorial">Also referred to as Decimation, this is the process of
+        reducing the sampling rate of a signal. Decimation reduces
+        the data rate of the size of the data, in this application\'s
+        case we reduce the size by half. This can also cause
+        degradation of the signal because you are cutting out
+        important pieces of data from the signal.
+    </string>
+
+
+    <string name="halve_sample_text">Halve Sample</string>
+
+    <string name="halve_sample_title">Halve Sample</string>
+
+    <string name="double_sample_text">Double Sample</string>
+
+    <string name="double_sample_title">Double Sample</string>
+
+    <!-- Double Samples -->
+    <string name="double_effect_name">Double Samples</string>
+    <string name="double_effect_desc">stretches recording</string>
+    <string name="double_tutorial">Also referred to as <i>Interpolation</i>, this is the process of
+        creating new data points within the range of the known
+        data points. This can be done by converting a sampled
+        digital signal (such as a recording of your voice) to a
+        higher sampling rate. In this application\'s case,
+        the sample rate is multiplied by two.</string>
+
+    <!-- App Info -->
+    <string name="appinfo_effect_name">Application Basics</string>
+    <string name="appinfo_tutorial">1. Press Rec and start speaking in a normal voice.\n2. Press stop when
+        finished.\n3. Select function button you want to apply.\n4. Press Play button to listen to your signal.</string>
+
+    <!-- K-State Engg Info -->
+    <string name="engg_effect_name">K-State Engineering</string>
+    <string name="engg_tutorial"><b>Vision Statement:</b>\nThe Kansas State University College of Engineering will
+be a highly ranked college providing quality education
+within a research environment that develops engineering
+leaders to benefit society.\n\nPlease visit http://www.engg.ksu.edu\nLike us on
+        Facebook: K-State Engineering\n\nUndergraduate enrollment: 3,503\nUndergraduate degrees
+        granted: 531\nTenured, tenure-track faculty: 123\nEndowment: $147M</string>
+
+    <string name="title_activity_display_tutorial">DisplayTutorial</string>
+
+</resources>
