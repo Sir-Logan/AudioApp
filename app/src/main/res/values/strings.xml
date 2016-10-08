@@ -97,5 +97,6 @@ leaders to benefit society.\n\nPlease visit http://www.engg.ksu.edu\nLike us on
         granted: 531\nTenured, tenure-track faculty: 123\nEndowment: $147M</string>
 
     <string name="title_activity_display_tutorial">DisplayTutorial</string>
+    <string name="Title">Choose a sound:</string>
 
 </resources>

@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/TitleContent"
-                android:layout_width="650dp"
+                android:layout_width="365dp"
                 android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_marginLeft="40dp"
@@ -39,7 +39,8 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="50sp"
                 android:textStyle="bold"
-                android:textColor="@color/background_material_light" />
+                android:textColor="@color/background_material_light"
+                android:layout_weight="0.27" />
 
 
             <TextView
@@ -51,7 +52,16 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textSize="32dp"
                 android:textStyle="bold|italic"
-                android:textColor="@color/background_floating_material_light" />
+                android:textColor="@color/background_floating_material_light"
+                android:layout_weight="0.11" />
+
+            <Button
+                android:layout_width="169dp"
+                android:layout_height="55dp"
+                android:text="Load Sound"
+                android:id="@+id/button2"
+                android:textSize="20dp"
+                android:onClick="loadSound" />
 
             <Button
                 android:id="@+id/button"

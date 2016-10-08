@@ -54,20 +54,21 @@ import static edu.ksu.ece590.androideffectsdemo.effects.FFT.*;
 import static java.lang.String.*;
 
 public class MainActivity extends ActionBarActivity {
-    GraphView graph;
-    LineGraphSeries Series;
-    boolean recording = false;
-    int sampleFreq = 44100;
-    int StopMultiPlay = 0;
-    int MinX = 300;
-    int MaxX = 4000;
-    int touchDebounce = 0;
+    GraphView graph; //the FFT data graph (right graph)
+    LineGraphSeries Series; //the data that gets graphed
+    boolean recording = false; //flag that states whether device is recording or not
+    int sampleFreq = 44100; //in Hz
+    int StopMultiPlay = 0; //variable used to prevent audio queueing
+    int MinX = 300; //minimum value on frequency graph (variable)
+    int MaxX = 4000; //maximum value on frequency graph (variable)
+    int touchDebounce = 0; // variable for debouncing the touch screen, used for cycling
+                            //through the different FFT ranges
 
-    TextView MainContent;
+    TextView MainContent; //These are the graphical objects
     TextView TitleContent;
     ToggleButton ReverbButton;
-    ToggleButton DoubleSampleButton;
-    ToggleButton HalveSampleButton;
+    //ToggleButton DoubleSampleButton;
+    //ToggleButton HalveSampleButton;
     ToggleButton LowPassButton;
     ToggleButton HighPassButton;
     ToggleButton ReverseButton;
@@ -75,7 +76,7 @@ public class MainActivity extends ActionBarActivity {
     Button RecordButton;
     SeekBar seekbar;
     CustomDrawableView customDrawableView;
-    CustomDrawableView customDrawableView2;
+    //CustomDrawableView customDrawableView2;
     AudioPlayTask audioTask;
 
     /** Called when the activity is first created. */
@@ -95,19 +96,15 @@ public class MainActivity extends ActionBarActivity {
         PlayButton = (Button) findViewById(R.id.PlayButton);
         RecordButton = (Button) findViewById(R.id.RecordButton);
         graph = (GraphView) findViewById(R.id.graph);
-        graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(MinX);
-        graph.getViewport().setMaxX(MaxX);
-        graph.getViewport().setMinY(0);
+        graph.getViewport().setXAxisBoundsManual(true); //make graph bounded by our values, not by data values
+        graph.getViewport().setMinX(MinX); //sets the minimum frequency
+        graph.getViewport().setMaxX(MaxX); //sets the maximum frequency
+        graph.getViewport().setMinY(0); //sets the minimum Y to 0 permanently (No negative magnitude for frequency)
         graph.setTitle("Spoken Audio Range");
-        //LegendRenderer legend = new LegendRenderer(graph);
-        //graph.setLegendRenderer(legend);
-        //graph.setTitle("Frequency in Hz");
         seekbar = (SeekBar) findViewById(R.id.seekbar);
         customDrawableView = (CustomDrawableView) findViewById(R.id.view);
-        //customDrawableView2 = (CustomDrawableView) findViewById(R.id.view2);
 
-        // create click listener
+        // if they click the reverb button
         final View.OnClickListener ReverbClick = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,8 +114,8 @@ public class MainActivity extends ActionBarActivity {
 
         View.OnClickListener GraphClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-            switch (MinX) {
+            public void onClick(View v) { //if they click the graph
+            switch (MinX) { //cycles through the different audio ranges
                 case 0: //spoken audio
                     MinX = 300;
                     MaxX = 4000;
@@ -134,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
                     MaxX = 15000;
                     graph.setTitle("Expanded Audio Range");
                     break;
-                default:
+                default: //same as spoken audio
                     MinX = 300;
                     MaxX = 4000;
                     graph.setTitle("Spoken Audio Range");
@@ -154,44 +151,44 @@ public class MainActivity extends ActionBarActivity {
 
         View.OnClickListener DoubleSampleClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //double sample button
             TitleContent.setText(R.string.double_sample_title);
             }
         };
 
         View.OnClickListener HalveSampleClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //halve sample button
             TitleContent.setText(R.string.halve_sample_title);
             }
         };
 
         View.OnClickListener LowPassClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //lowpass button
             TitleContent.setText(R.string.lowpass_effect_name);
             }
         };
 
         View.OnClickListener HighPassClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //highpass button
             TitleContent.setText(R.string.highpass_effect_name);
             }
         };
 
         View.OnClickListener ReverseClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //reverse button
             TitleContent.setText(R.string.reverse_effect_name);
             }
         };
 
         View.OnClickListener PlayClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-            PlayButton.setClickable(false);
-            RecordButton.setEnabled(false);
+            public void onClick(View v) { //play button
+            PlayButton.setClickable(false); //so you can't press play twice
+            RecordButton.setEnabled(false); //you cant record while playing
             RecordButton.setClickable(false);
             if(StopMultiPlay == 0) {//only play if it's not currently playing. This stops it from queuing
                 playRecord();
@@ -204,7 +201,7 @@ public class MainActivity extends ActionBarActivity {
 
         View.OnClickListener RecordClick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v) { //record button pressed
             if(StopMultiPlay == 0) {//this way you cant record while it's playing
                 //if the button was pressed and we were recording, we want to stop
                 if (recording) {
@@ -255,8 +252,8 @@ public class MainActivity extends ActionBarActivity {
         ReverseButton.setOnClickListener(ReverseClick);
     }
 
-    private void startRecord(){
-        File file = new File(Environment.getExternalStorageDirectory(), "test.pcm");
+    private void startRecord(){ //starts recording audio
+        File file = new File(Environment.getExternalStorageDirectory(), "test.pcm"); //creates someplace to store the data
         try {
             file.createNewFile();
             OutputStream outputStream = new FileOutputStream(file);
@@ -353,7 +350,7 @@ public class MainActivity extends ActionBarActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    } //end StartRecord()
 
     private class AudioPlayTask extends AsyncTask<Void, Void, Void>
     {
@@ -481,6 +478,11 @@ public class MainActivity extends ActionBarActivity {
 
     public void openTutorial(View view) {
         Intent intent = new Intent(this, DisplayTutorial.class);
+        startActivity(intent);
+    }
+
+    public void loadSound(View view) {
+        Intent intent = new Intent(this, ChooseSound.class);
         startActivity(intent);
     }
 }

@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:id="@+id/GridLayoutTest"
+    android:focusableInTouchMode="false"
+    android:columnOrderPreserved="true"
+    android:rowOrderPreserved="true"
+    android:useDefaultMargins="false"
+    android:background="@color/primary_material_dark">
+
+
+    <TableRow
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:paddingBottom="-0dp">
+
+
+        <TextView
+            android:layout_width="1000dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Choose a Sound:"
+            android:id="@+id/TutorialTitle"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="25dp"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            android:textColor="#2fff00"
+            android:layout_column="1" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:layout_column="1">
+
+            <TableLayout
+                android:layout_width="500dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="25dp">
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginTop="0dp">
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/SineButton"
+                        android:layout_column="0"
+                        android:textSize="24dp"
+                        android:textAllCaps="false"
+                        android:text="Sine Wave"
+                        android:layout_marginRight="75dp"
+                        android:layout_gravity="bottom"
+                        android:layout_span="2" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/TriangleButton"
+                        android:layout_column="0"
+                        android:textSize="24dp"
+                        android:textAllCaps="false"
+                        android:singleLine="false"
+                        android:text="Triangle Wave"
+                        android:layout_marginRight="75dp"
+                        android:layout_gravity="bottom" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/SquareButton"
+                        android:layout_column="0"
+                        android:textSize="24dp"
+                        android:textAllCaps="false"
+                        android:singleLine="false"
+                        android:text="Square Wave"
+                        android:layout_marginRight="75dp"
+                        android:layout_gravity="bottom" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp">
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/ThirdOrderButton"
+                        android:layout_column="0"
+                        android:textSize="24dp"
+                        android:textAllCaps="false"
+                        android:singleLine="false"
+                        android:text="3rd Order Summation"
+                        android:layout_marginRight="75dp"
+                        android:layout_gravity="bottom" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="200dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/AppButton"
+                        android:layout_column="0"
+                        android:textSize="30dp"
+                        android:singleLine="false"
+                        android:text="Back to Application"
+                        android:textAllCaps="false"
+                        android:layout_gravity="bottom"
+                        android:layout_span="2"
+                        android:nestedScrollingEnabled="false" />
+
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
+
+    </TableRow>
+
+
+</TableLayout>
